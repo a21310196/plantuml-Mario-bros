@@ -1,0 +1,79 @@
+@startuml Mariobros
+class Juego {
+    +inicio()
+    +pausar()
+    +terminar()
+}
+
+class Personaje {
+    +altura: int
+    +ancho: int
+    +nombre: String
+    +vida: int
+    +mover()
+    +saltar()
+    
+}
+
+class Mario {
+    
+    +recogerMoneda()
+    +Levantar()
+    -powerup()
+    -Vidas:int
+
+    
+
+}
+
+class Enemigo {
+    +tipo: String
+    +atacar()
+}
+class fungi{
+
+}
+class Koppa{
+    +entrarencaparazon()
+    
+
+}
+class obstaculo{
+    +ancho: int
+    +alto: int
+
+}
+
+class Nivel {
+    +numero: int
+    +nivel: String
+    +cargarpantalla()
+}
+
+class Item {
+    +tipo: String
+    +usar()
+}
+
+Juego *-- Nivel 
+Nivel *--obstaculo
+Nivel *-- Item
+Nivel *--Personaje
+
+
+
+Mario--|>Personaje
+Koppa--|>Personaje
+fungi--|>Personaje
+
+
+
+Koppa--|>Enemigo
+fungi--|>Enemigo
+
+
+Mario o--Item
+Mario o--Juego
+
+
+@enduml
